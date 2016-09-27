@@ -1,0 +1,28 @@
+﻿@model Lab21_GrantChirpusCodeDojo.Models.StudentResponse
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Thanks</title>
+</head>
+<body>
+    <div>
+        <h2>Awesome, @Model.Name!</h2>
+        @if (Model.WillAttend == true)
+        {
+            @:See you soon in Java Class!
+        }
+        else
+        {
+            @:See you soon in .Net Class!
+        }
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,54 @@
+﻿@model Lab21_GrantChirpusCodeDojo.Models.StudentResponse
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" type="text/css" href="~/Content/Style.css"/>
+    <title>RsvpForm</title>
+</head>
+<body>
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary()
+        <p>Your name: @Html.TextBoxFor(x => x.Name)</p>
+        <p>
+            Gender: @Html.RadioButtonFor(x => x.Gender, "M")@Html.Label("Male")
+            @Html.RadioButtonFor(x => x.Gender, "F")@Html.Label("Female")
+        </p>
+
+        <p>Your email: @Html.TextBoxFor(x => x.Email)</p>
+        <p>Your phone: @Html.TextBoxFor(x => x.Phone)</p>
+        <p>
+            Please Select a Bootcamp
+            @Html.DropDownListFor(x => x.WillAttend, new[] {
+           new SelectListItem() { Text = "Java",
+               Value = bool.TrueString },
+           new SelectListItem() {Text=".Net",
+           Value=bool.FalseString}
+       }, "Choose an option")
+        </p>
+        @*<p>How did you hear about Grand Circus? @Html.CheckBoxFor(x => x.)@Html.Label("Website")</p>*@
+      
+          <p>
+              How did you hear about Grant Chirpus' Code Dojo? <br />
+                @Html.CheckBoxFor(x => x.WebsiteSearch) Website Search<br />
+                @Html.CheckBoxFor(x => x.Newspaper) Newspaper<br />
+                @Html.CheckBoxFor(x => x.Radio) Radio<br />
+                @Html.CheckBoxFor(x => x.FriendsFamily) Friends/Family<br />
+                @Html.CheckBoxFor(x => x.SocialMedia) Social Media<br />
+                @Html.CheckBoxFor(x => x.Other) Other<br />
+        </p>
+
+
+
+
+        <input type="submit" value="Submit RSVP" />
+    }
+</body>
+</html>
