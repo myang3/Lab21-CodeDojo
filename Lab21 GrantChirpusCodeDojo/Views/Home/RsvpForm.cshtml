@@ -8,47 +8,64 @@
 
 <html>
 <head>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="stylesheet" type="text/css" href="~/Content/Style.css"/>
+    <link href="~/Content/Styles.css" rel="stylesheet" />
     <title>RsvpForm</title>
 </head>
 <body>
+    <div class="panel panel-success">
+        <div class="panel-heading text-center"><h3>Register</h3></div>
+        <div class="panel-body">
     @using (Html.BeginForm())
     {
         @Html.ValidationSummary()
-        <p>Your name: @Html.TextBoxFor(x => x.Name)</p>
-        <p>
-            Gender: @Html.RadioButtonFor(x => x.Gender, "M")@Html.Label("Male")
+        <div class="form-group">
+            <label>Your name:</label> 
+            @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label>Gender:</label> @Html.RadioButtonFor(x => x.Gender, "M") @Html.Label("Male")
             @Html.RadioButtonFor(x => x.Gender, "F")@Html.Label("Female")
-        </p>
+        </div>
 
-        <p>Your email: @Html.TextBoxFor(x => x.Email)</p>
-        <p>Your phone: @Html.TextBoxFor(x => x.Phone)</p>
-        <p>
-            Please Select a Bootcamp
-            @Html.DropDownListFor(x => x.WillAttend, new[] {
+        <div class="form-group">
+            <label>Your email:</label> 
+            @Html.TextBoxFor(x => x.Email, new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            <label>phone:</label> 
+            @Html.TextBoxFor(x => x.Phone, new { @class = "form-control" })
+        </div>
+           
+        <div class="form-group">
+            <label> Please Select a Bootcamp </label>
+           @Html.DropDownListFor(x => x.WillAttend, new[] {
            new SelectListItem() { Text = "Java",
                Value = bool.TrueString },
            new SelectListItem() {Text=".Net",
-           Value=bool.FalseString}
-       }, "Choose an option")
-        </p>
-        @*<p>How did you hear about Grand Circus? @Html.CheckBoxFor(x => x.)@Html.Label("Website")</p>*@
-      
-          <p>
-              How did you hear about Grant Chirpus' Code Dojo? <br />
+               Value=bool.FalseString}
+       }, "Choose an option", new { @class = "form-control" })
+       </div>
+
+   @*<p>How did you hear about Grand Circus? @Html.CheckBoxFor(x => x.)@Html.Label("Website")</p>*@
+
+            <div class="form-group">
+                <Label>How did you hear about Grant Chirpus' Code Dojo? </Label><br />
                 @Html.CheckBoxFor(x => x.WebsiteSearch) Website Search<br />
                 @Html.CheckBoxFor(x => x.Newspaper) Newspaper<br />
                 @Html.CheckBoxFor(x => x.Radio) Radio<br />
                 @Html.CheckBoxFor(x => x.FriendsFamily) Friends/Family<br />
                 @Html.CheckBoxFor(x => x.SocialMedia) Social Media<br />
                 @Html.CheckBoxFor(x => x.Other) Other<br />
-        </p>
-
-
-
-
-        <input type="submit" value="Submit RSVP" />
+              </div>
+                <div class= "text-center">
+                    <input calss="btn btn-success" type="submit" value="Submit" />
+                </div>
     }
+            </div>
+        </div>
 </body>
 </html>

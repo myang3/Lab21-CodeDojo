@@ -8,15 +8,30 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
     <title>HomePage</title>
+    <style>
+        .btn a {
+            color: white;
+            text-decoration: none;
+        }
+
+        body {
+            background-color: #F1F1F1;
+        }
+    </style>
 </head>
 <body>
-    <div>
-        @ViewBag.Greeting Grant Chirpus Prospective Student
-        <p>
-            We're going to have an exciting Bootcamp, please click the link below to register.<br />
-        </p>
+    <div class= "text-center">
+        <h1> @ViewBag.Greeting Grant Chirpus Prospective Student!</h1>
+        <h2>
+            We're going to have an exciting Bootcamp!!
+        </h2>
+        <h3>Please click the button below to register.</h3><br />
+          <div class="btn btn-success">
         @Html.ActionLink("Register Now!", "RsvpForm")
     </div>
+          </div>
 </body>
 </html>
